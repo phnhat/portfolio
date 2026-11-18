@@ -31,7 +31,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-layout">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="accent-dot"></span> Senior Software Engineer</p>
+          <p class="hero-greeting">Hello, I am</p>
           <h1 id="hero-title">Nhat <em>Pham</em><span>.</span></h1>
           <p class="hero-intro">I build fast web applications and the systems that support them.</p>
           <p class="hero-detail">My focus is frontend engineering with React, Angular, and TypeScript. I also work on backend services and cloud infrastructure.</p>
@@ -39,7 +39,14 @@
             <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
             <a class="button button-outline" href="./nhat-pham-resume.pdf" target="_blank" rel="noopener">Résumé <span class="file-type">PDF</span> <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="hero-location">Based in Ho Chi Minh City, Vietnam</p>
+          <div class="hero-credentials" role="group" aria-label="Certifications">
+            <a class="hero-credential" href="https://www.credly.com/badges/5fd3b579-95d8-4666-9571-e0b0bd48c18b/public_url" target="_blank" rel="noopener" aria-label="Verify AWS Certified Solutions Architect – Associate on Credly">
+              <img src="./pictures/aws-solutions-architect-associate.png" width="80" height="80" alt="AWS Certified Solutions Architect – Associate badge" decoding="async">
+            </a>
+            <a class="hero-credential" href="https://verify.skilljar.com/c/bxtpazeomcjo" target="_blank" rel="noopener" aria-label="Verify Claude Code in Action certificate">
+              <img class="anthropic-logo" src="./pictures/anthropic-icon.svg" width="80" height="80" alt="Anthropic" decoding="async">
+            </a>
+          </div>
         </div>
 
         <section class="recommendations" aria-labelledby="recommendations-title" aria-roledescription="carousel">
@@ -106,10 +113,86 @@
           <dd>7</dd>
         </div>
         <div class="metric">
-          <dt>Happy clients</dt>
-          <dd>4</dd>
+          <dt>Client Satisfaction</dt>
+          <dd>100%</dd>
         </div>
       </dl>
+
+      <section class="section skills" id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <h2 id="skills-title">Technical <em class="heading-underline">skills</em></h2>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Programming languages</h3>
+            <ul class="tags">
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>PHP</li>
+              <li>Python</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Frontend</h3>
+            <ul class="tags">
+              <li>React</li>
+              <li>Angular</li>
+              <li>Next.js</li>
+              <li>RxJS</li>
+              <li>Storybook</li>
+              <li>SCSS</li>
+              <li>Micro-frontends</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Backend &amp; data</h3>
+            <ul class="tags">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>Laravel</li>
+              <li>GraphQL</li>
+              <li>MySQL</li>
+              <li>MongoDB</li>
+              <li>DynamoDB</li>
+              <li>Redis</li>
+              <li>RabbitMQ</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Cloud &amp; DevOps</h3>
+            <ul class="tags">
+              <li>AWS</li>
+              <li>Docker</li>
+              <li>CI/CD</li>
+              <li>ArgoCD</li>
+              <li>Datadog</li>
+              <li>Nx</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Architecture &amp; testing</h3>
+            <ul class="tags">
+              <li>Microservices</li>
+              <li>Event-driven systems</li>
+              <li>SOLID</li>
+              <li>Unit testing</li>
+              <li>Integration testing</li>
+              <li>End-to-end testing</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>AI-assisted engineering</h3>
+            <ul class="tags">
+              <li>Claude Code</li>
+              <li>Gemini API</li>
+              <li>Implementation</li>
+              <li>Testing</li>
+              <li>Incident analysis</li>
+              <li>Technical documentation</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
       <section class="section work" id="work" aria-labelledby="work-title">
         <div class="section-heading">
@@ -120,7 +203,6 @@
           <a class="project project-featured" href="./projects/bark.html" aria-labelledby="project-bark-title">
             <div class="project-top">
               <p class="eyebrow">Axon Active · Marketplace</p>
-              <span class="project-link" aria-hidden="true">→</span>
             </div>
             <h3 id="project-bark-title">Bark.com</h3>
             <p>I worked on the customer web app, marketing pages, and Contentful CMS for a marketplace that connects people with local professionals. One landing page feature I helped build doubled the interaction rate.</p>
@@ -132,7 +214,6 @@
           <a class="project" href="./projects/aquadvanced.html" aria-labelledby="project-aquadvanced-title">
             <div class="project-top">
               <p class="eyebrow">FPT Software · Water networks</p>
-              <span class="project-link" aria-hidden="true">→</span>
             </div>
             <h3 id="project-aquadvanced-title">AQUADVANCED</h3>
             <p>I built and tested frontend features for SUEZ’s real-time water network software and helped migrate legacy Angular applications. I represented FPT on the team alongside colleagues in France and Singapore.</p>
@@ -144,7 +225,6 @@
           <a class="project" href="./projects/pureintegration.html" aria-labelledby="project-pureintegration-title">
             <div class="project-top">
               <p class="eyebrow">IMT Solutions · Enterprise applications</p>
-              <span class="project-link" aria-hidden="true">→</span>
             </div>
             <h3 id="project-pureintegration-title">pureIntegration</h3>
             <p>I built interfaces and microservices for ContentCheck, iSource, and LiveEdge, covering content moderation, asset management, and TV ad monitoring. Redis and parallel processing helped cut one API response time from 56 seconds to 10 milliseconds.</p>
@@ -156,7 +236,6 @@
           <a class="project" href="./projects/gallery-of-confessions.html" aria-labelledby="project-gallery-title">
             <div class="project-top">
               <p class="eyebrow">Personal project · Generative art</p>
-              <span class="project-link" aria-hidden="true">→</span>
             </div>
             <h3 id="project-gallery-title">Gallery of Confessions</h3>
             <p>I built a hobby project that turns private confessions into unique artwork using the Gemini API. It uses Firestore for storage and integrates augmented reality.</p>
@@ -221,8 +300,8 @@
           <h2 id="about-title">About <em class="heading-underline">me</em></h2>
         </div>
         <div class="about-grid">
+          <p class="about-intro">I like seeing an engineering problem through, from figuring out what users need to tracking down issues in production.</p>
           <div>
-            <p class="about-intro">I like seeing an engineering problem through, from figuring out what users need to tracking down issues in production.</p>
             <h3>Education</h3>
             <p>Bachelor’s in Software Engineering<br>Ho Chi Minh University of Science, 2015–2019</p>
             <h3>Credentials</h3>
@@ -233,40 +312,28 @@
               <li>TOEIC 900</li>
             </ul>
           </div>
-          <div class="toolkit">
-            <h3>Technical skills</h3>
-            <dl>
-              <div><dt>Frontend</dt><dd>TypeScript, React, Angular, Next.js, RxJS, Storybook, micro-frontends</dd></div>
-              <div><dt>Backend &amp; data</dt><dd>Node.js, Python, PHP, GraphQL, MySQL, MongoDB, Redis, RabbitMQ</dd></div>
-              <div><dt>Cloud &amp; operations</dt><dd>AWS, Docker, CI/CD, ArgoCD, Datadog</dd></div>
-              <div><dt>AI-assisted engineering</dt><dd>Implementation, testing, incident analysis, and technical documentation</dd></div>
-            </dl>
-          </div>
         </div>
       </section>
     </div>
-
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div class="wrap contact-layout">
-        <div>
-          <p class="eyebrow"><span class="accent-dot"></span> Contact</p>
-          <h2 id="contact-title">Let’s <em>talk.</em></h2>
-        </div>
-        <div>
-          <a class="contact-email" href="mailto:phnhat0210@gmail.com">phnhat0210@gmail.com <span aria-hidden="true">↗</span></a>
-          <div class="contact-socials">
-            <a href="https://www.linkedin.com/in/nhat-hoangpham/">LinkedIn <span aria-hidden="true">↗</span></a>
-            <a href="https://github.com/phnhat">GitHub <span aria-hidden="true">↗</span></a>
-            <a href="./nhat-pham-resume.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-layout">
+      <div>
+        <p class="eyebrow"><span class="accent-dot"></span> Contact</p>
+        <h2 id="contact-title">Let’s <em>talk.</em></h2>
+      </div>
+      <div>
+        <a class="contact-email" href="mailto:phnhat0210@gmail.com">phnhat0210@gmail.com <span aria-hidden="true">↗</span></a>
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/nhat-hoangpham/">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/phnhat">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="./nhat-pham-resume.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
     <div class="wrap footer-layout">
-      <p>Pham Hoang Nhat</p>
+      <p>© 2026 Pham Hoang Nhat. All rights reserved.</p>
       <a class="text-link" href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
