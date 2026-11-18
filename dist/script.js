@@ -14,15 +14,18 @@ highlightCurrentLink();
 window.addEventListener("hashchange", highlightCurrentLink);
 
 const carousel = document.querySelector(".recommendations");
+const recommendationCard = carousel.querySelector(".recommendation-card");
 const slides = Array.from(carousel.querySelectorAll(".recommendation"));
 const slideContainer = carousel.querySelector(".recommendation-slides");
-const rotationButton = carousel.querySelector(".recommendation-rotation");
 const positionLabel = carousel.querySelector(".recommendation-position");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const manualPauseDuration = 3 * 60 * 1000;
 let currentSlide = 0;
-let rotationEnabled = !reducedMotion.matches;
+let resumeAt = 0;
 let pointerInside = false;
+let cardHasFocus = false;
 let rotationTimer;
+let resumeTimer;
 
 function showRecommendation(index) {
   currentSlide = (index + slides.length) % slides.length;
@@ -37,47 +40,43 @@ function showRecommendation(index) {
 
 function updateRotation() {
   window.clearInterval(rotationTimer);
-  rotationButton.textContent = rotationEnabled ? "Pause rotation" : "Resume rotation";
-  slideContainer.setAttribute("aria-live", rotationEnabled ? "off" : "polite");
-  if (rotationEnabled && !pointerInside && !document.hidden) {
+  const canRotate = !reducedMotion.matches && !pointerInside && !cardHasFocus &&
+    !document.hidden && Date.now() >= resumeAt;
+  slideContainer.setAttribute("aria-live", canRotate ? "off" : "polite");
+  if (canRotate) {
     rotationTimer = window.setInterval(() => showRecommendation(currentSlide + 1), 10000);
   }
 }
 
 function moveRecommendation(direction) {
-  rotationEnabled = false;
+  resumeAt = Date.now() + manualPauseDuration;
+  window.clearTimeout(resumeTimer);
+  resumeTimer = window.setTimeout(updateRotation, manualPauseDuration);
   showRecommendation(currentSlide + direction);
   updateRotation();
 }
 
 carousel.querySelector(".recommendation-previous").addEventListener("click", () => moveRecommendation(-1));
 carousel.querySelector(".recommendation-next").addEventListener("click", () => moveRecommendation(1));
-rotationButton.addEventListener("click", () => {
-  rotationEnabled = !rotationEnabled;
-  updateRotation();
-});
-carousel.addEventListener("pointerenter", () => {
+recommendationCard.addEventListener("pointerenter", () => {
   pointerInside = true;
   updateRotation();
 });
-carousel.addEventListener("pointerleave", () => {
+recommendationCard.addEventListener("pointerleave", () => {
   pointerInside = false;
   updateRotation();
 });
-carousel.addEventListener("focusin", (event) => {
-  if (event.target !== rotationButton) {
-    rotationEnabled = false;
-    updateRotation();
-  }
+recommendationCard.addEventListener("focusin", () => {
+  cardHasFocus = true;
+  updateRotation();
+});
+recommendationCard.addEventListener("focusout", (event) => {
+  cardHasFocus = recommendationCard.contains(event.relatedTarget);
+  updateRotation();
 });
 document.addEventListener("visibilitychange", updateRotation);
-reducedMotion.addEventListener("change", () => {
-  if (reducedMotion.matches) {
-    rotationEnabled = false;
-    updateRotation();
-  }
-});
+reducedMotion.addEventListener("change", updateRotation);
 
-carousel.querySelector(".recommendation-controls").hidden = false;
+carousel.querySelector(".recommendation-navigation").hidden = false;
 showRecommendation(0);
 updateRotation();
